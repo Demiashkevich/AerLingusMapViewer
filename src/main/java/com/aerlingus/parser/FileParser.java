@@ -18,14 +18,17 @@ public class FileParser {
 
   private static final Logger logger = Logger.getLogger(FileParser.class);
 
-  private String path;
-
-  public FileParser(final String path) {
-    this.path = path;
+  public List<TrafficInfo> parse(final List<String> pathList) {
+    final List<TrafficInfo> allFileResult = new ArrayList<>();
+    pathList.forEach(p -> {
+      final List<TrafficInfo> fileResult = this.parse(p);
+      allFileResult.addAll(fileResult);
+    });
+    return allFileResult;
   }
 
-  public List<TrafficInfo> parse() {
-    final List<String> fileLineList = this.getFileLine();
+  private List<TrafficInfo> parse(final String path) {
+    final List<String> fileLineList = this.getFileLine(path);
 
     List<String> subFileLineList = fileLineList.subList(7, fileLineList.size());
 
@@ -34,7 +37,7 @@ public class FileParser {
     subFileLineList.forEach(s -> {
       final List<String> valueLineList = Splitter.on(CharMatcher.anyOf("|,")).splitToList(s);
 
-      TrafficInfo trafficInfo = new TrafficInfo();
+      final TrafficInfo trafficInfo = new TrafficInfo();
       trafficInfo.setPnrReference(valueLineList.get(0));
       trafficInfo.setTransactionId(valueLineList.get(1));
       trafficInfo.setOriginAirport(valueLineList.get(2));
@@ -54,7 +57,7 @@ public class FileParser {
   }
 
   private Date convertStringToDate(final String strDate) {
-    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+    final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
     try {
       return formatter.parse(strDate);
     } catch (ParseException e) {
@@ -63,7 +66,7 @@ public class FileParser {
     return null;
   }
 
-  private List<String> getFileLine() {
+  private List<String> getFileLine(final String path) {
     try {
       return Files.readAllLines(Paths.get(path));
     } catch (IOException e) {
