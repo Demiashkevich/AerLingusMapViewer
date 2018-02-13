@@ -4,6 +4,7 @@ import com.aerlingus.entity.TrafficInfo;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Component
 public class FileParser {
 
   private static final Logger logger = Logger.getLogger(FileParser.class);

@@ -30,8 +30,8 @@ repositories {
         url "https://www.oracle.com/content/secure/maven/content"
         name "maven.oracle.com"
         credentials {
-            username 'yanzharov@tut.by'
-            password 'Tyrionlannister1'
+            username ''
+            password ''
         }
     }
 }

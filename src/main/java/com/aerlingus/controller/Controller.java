@@ -1,17 +1,24 @@
 package com.aerlingus.controller;
 
+import com.aerlingus.service.TrafficInfoService;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Controller {
-
-  private static final Logger logger = Logger.getLogger(Controller.class);
+  @Autowired
+  TrafficInfoService trafficInfoService;
 
   @GetMapping(value = "/trafficInfo/")
   public String getTrafficInfo() {
-    return "123";
+    return trafficInfoService.getTrafficInfo();
   }
 
+  @GetMapping(value = "/trafficInfo/add/")
+  public void addTraficInfo(){
+    trafficInfoService.addTrafficInfo();
+  }
 }
