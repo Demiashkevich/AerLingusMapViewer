@@ -1,6 +1,8 @@
 package com.aerlingus.service;
 
 import com.aerlingus.dao.TrafficInfoRepository;
+import com.aerlingus.dto.CityInfo;
+import com.aerlingus.dto.TrafficInfoDto;
 import com.aerlingus.entity.TrafficInfo;
 import com.aerlingus.parser.FileParser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +26,14 @@ public class TrafficInfoService {
   }
 
   public String getTrafficInfo(){
-    Iterable<TrafficInfo> trafficInfos=trafficInfoRepository.findAll();
-    for(TrafficInfo trafficInfo:trafficInfos){
-      return trafficInfo.getPnrReference();
-    }
+    Iterable<CityInfo> cityInfos=trafficInfoRepository.getCityInfos();
+    Iterable<TrafficInfoDto> trafficInfoDtoList=trafficInfoRepository.getTrafficInfoDtoList();
+    buildCityInfoList(cityInfos,trafficInfoDtoList);
+    return cityInfos.toString();
+  }
+
+  public List<CityInfo> buildCityInfoList(Iterable<CityInfo> cityInfos, Iterable<TrafficInfoDto> trafficInfoDtoList){
+
     return null;
   }
 }
