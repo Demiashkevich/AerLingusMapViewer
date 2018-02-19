@@ -4,8 +4,10 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="TRAFFIC_INFO")
 public class TrafficInfo {
   private static long serialVersionUID=1L;
   @Id
