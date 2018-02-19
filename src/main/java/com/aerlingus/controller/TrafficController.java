@@ -8,17 +8,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class Controller {
+public class TrafficController {
+
   @Autowired
-  TrafficInfoService trafficInfoService;
+  TrafficInfoService trafficService;
 
-  @GetMapping(value = "/trafficInfo/")
+  @GetMapping(value = "/traffics/")
   public String getTrafficInfo() {
-    return trafficInfoService.getTrafficInfo();
+    return trafficService.getTrafficInfo();
   }
 
-  @GetMapping(value = "/trafficInfo/add/")
-  public void addTraficInfo(){
-    trafficInfoService.addTrafficInfo();
+  @GetMapping(value = "/traffics/add/")
+  public void addTrafficInfo(){
+    trafficService.addTrafficInfo();
   }
+
 }
