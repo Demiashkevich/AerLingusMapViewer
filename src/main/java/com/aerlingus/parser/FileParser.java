@@ -42,8 +42,8 @@ public class FileParser {
       final TrafficInfo trafficInfo = new TrafficInfo();
       trafficInfo.setPnrReference(valueLineList.get(0));
       trafficInfo.setTransactionId(valueLineList.get(1));
-      trafficInfo.setOriginAirport(valueLineList.get(2));
-      trafficInfo.setDestAirport(valueLineList.get(3));
+      trafficInfo.setOriginCity(valueLineList.get(2));
+      trafficInfo.setDestCity(valueLineList.get(3));
       trafficInfo.setTransactionDate(parseDate(valueLineList.get(4)));
       trafficInfo.setQuantity(valueLineList.get(5));
 

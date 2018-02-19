@@ -19,7 +19,7 @@ public class PathScanner {
 
     for (File file : files) {
       if (file.isFile()) {
-        paths.add(file.getName());
+        paths.add(file.getAbsolutePath());
       }
     }
 

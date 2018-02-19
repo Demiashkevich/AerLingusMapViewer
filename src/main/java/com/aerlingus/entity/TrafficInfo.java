@@ -15,10 +15,10 @@ public class TrafficInfo {
   private String PnrReference;
   @Column(name="TRANSACTION_ID")
   private String transactionId;
-  @Column(name="ORIGIN_AIRPORT")
-  private String originAirport;
-  @Column(name="DEST_AIRPORT")
-  private String destAirport;
+  @Column(name="ORIGIN_CITY")
+  private String originCity;
+  @Column(name="DEST_CITY")
+  private String destCity;
   @Column(name="TRANSACTION_DATE")
   private Date transactionDate;
   @Column(name="QUANTITY")
@@ -27,12 +27,12 @@ public class TrafficInfo {
   public TrafficInfo() {
   }
 
-  public TrafficInfo(String pnrReference, String transactionId, String originAirport, String destAirport,
-      Date transactionDate, String quantity) {
+  public TrafficInfo(String pnrReference, String transactionId, String originCity, String destCity, Date transactionDate,
+      String quantity) {
     PnrReference = pnrReference;
     this.transactionId = transactionId;
-    this.originAirport = originAirport;
-    this.destAirport = destAirport;
+    this.originCity = originCity;
+    this.destCity = destCity;
     this.transactionDate = transactionDate;
     this.quantity = quantity;
   }
@@ -53,20 +53,20 @@ public class TrafficInfo {
     this.transactionId = transactionId;
   }
 
-  public String getOriginAirport() {
-    return originAirport;
+  public String getOriginCity() {
+    return originCity;
   }
 
-  public void setOriginAirport(String originAirport) {
-    this.originAirport = originAirport;
+  public void setOriginCity(String originCity) {
+    this.originCity = originCity;
   }
 
-  public String getDestAirport() {
-    return destAirport;
+  public String getDestCity() {
+    return destCity;
   }
 
-  public void setDestAirport(String destAirport) {
-    this.destAirport = destAirport;
+  public void setDestCity(String destCity) {
+    this.destCity = destCity;
   }
 
   public Date getTransactionDate() {
@@ -94,8 +94,8 @@ public class TrafficInfo {
 
     if (PnrReference != null ? !PnrReference.equals(that.PnrReference) : that.PnrReference != null) return false;
     if (transactionId != null ? !transactionId.equals(that.transactionId) : that.transactionId != null) return false;
-    if (originAirport != null ? !originAirport.equals(that.originAirport) : that.originAirport != null) return false;
-    if (destAirport != null ? !destAirport.equals(that.destAirport) : that.destAirport != null) return false;
+    if (originCity != null ? !originCity.equals(that.originCity) : that.originCity != null) return false;
+    if (destCity != null ? !destCity.equals(that.destCity) : that.destCity != null) return false;
     if (transactionDate != null ? !transactionDate.equals(that.transactionDate) : that.transactionDate != null) return false;
     return quantity != null ? quantity.equals(that.quantity) : that.quantity == null;
   }
@@ -104,8 +104,8 @@ public class TrafficInfo {
   public int hashCode() {
     int result = PnrReference != null ? PnrReference.hashCode() : 0;
     result = 31 * result + (transactionId != null ? transactionId.hashCode() : 0);
-    result = 31 * result + (originAirport != null ? originAirport.hashCode() : 0);
-    result = 31 * result + (destAirport != null ? destAirport.hashCode() : 0);
+    result = 31 * result + (originCity != null ? originCity.hashCode() : 0);
+    result = 31 * result + (destCity != null ? destCity.hashCode() : 0);
     result = 31 * result + (transactionDate != null ? transactionDate.hashCode() : 0);
     result = 31 * result + (quantity != null ? quantity.hashCode() : 0);
     return result;
@@ -116,8 +116,8 @@ public class TrafficInfo {
     return "TrafficInfo{" +
         "PnrReference='" + PnrReference + '\'' +
         ", transactionId='" + transactionId + '\'' +
-        ", originAirport='" + originAirport + '\'' +
-        ", destAirport='" + destAirport + '\'' +
+        ", originCity='" + originCity + '\'' +
+        ", destCity='" + destCity + '\'' +
         ", transactionDate=" + transactionDate +
         ", quantity='" + quantity + '\'' +
         '}';
