@@ -1,13 +1,13 @@
 package com.aerlingus.dto;
 
-public class Destination {
+public class DestinationDto {
   private String destCity;
-  private int totalNumber;
+  private long totalNumber;
 
-  public Destination() {
+  public DestinationDto() {
   }
 
-  public Destination(String destCity, int totalNumber) {
+  public DestinationDto(String destCity, long totalNumber) {
     this.destCity = destCity;
     this.totalNumber = totalNumber;
   }
@@ -20,7 +20,7 @@ public class Destination {
     this.destCity = destCity;
   }
 
-  public int getTotalNumber() {
+  public long getTotalNumber() {
     return totalNumber;
   }
 

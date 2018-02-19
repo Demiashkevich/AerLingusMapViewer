@@ -1,18 +1,19 @@
 package com.aerlingus.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-public class CityInfo {
+public class CityInfoDto {
   private String originCity;
   private long totalNumber;
-  private List<Destination> destinations;
+  private List<DestinationDto> destinations = new ArrayList<>();
 
-  public CityInfo() {
+  public CityInfoDto() {
   }
 
-  public CityInfo(String originCity, long totalNumber) {
+  public CityInfoDto(String originCity, long totalNumber) {
     this.originCity = originCity;
     this.totalNumber = totalNumber;
   }
@@ -33,11 +34,11 @@ public class CityInfo {
     this.totalNumber = totalNumber;
   }
 
-  public List<Destination> getDestinations() {
+  public List<DestinationDto> getDestinations() {
     return destinations;
   }
 
-  public void setDestinations(List<Destination> destinations) {
+  public void setDestinations(List<DestinationDto> destinations) {
     this.destinations = destinations;
   }
 }
