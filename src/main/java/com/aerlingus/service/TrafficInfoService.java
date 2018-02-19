@@ -2,7 +2,7 @@ package com.aerlingus.service;
 
 import com.aerlingus.converter.TrafficConverter;
 import com.aerlingus.dao.TrafficInfoRepository;
-import com.aerlingus.dto.CityInfoDto;
+import com.aerlingus.dto.AirportInfoDto;
 import com.aerlingus.dto.TrafficInfoDto;
 import com.aerlingus.entity.TrafficInfo;
 import com.aerlingus.parser.FileParser;
@@ -45,8 +45,8 @@ public class TrafficInfoService {
     return true;
   }
 
-  public List<CityInfoDto> getTrafficInfo() {
-    final List<CityInfoDto> cityList = trafficInfoRepository.getCityInfos();
+  public List<AirportInfoDto> getTrafficInfo() {
+    final List<AirportInfoDto> cityList = trafficInfoRepository.getAirportInfos();
     final List<TrafficInfoDto> trafficDtoList = trafficInfoRepository.getTrafficInfoDtoList();
 
     trafficConverter.trafficDtoToCityDto(cityList, trafficDtoList);

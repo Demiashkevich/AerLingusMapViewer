@@ -5,15 +5,15 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-public class CityInfoDto {
+public class AirportInfoDto {
   private String originAirport;
   private long totalNumber;
   private List<DestinationDto> destinations = new ArrayList<>();
 
-  public CityInfoDto() {
+  public AirportInfoDto() {
   }
 
-  public CityInfoDto(String originAirport, long totalNumber) {
+  public AirportInfoDto(String originAirport, long totalNumber) {
     this.originAirport = originAirport;
     this.totalNumber = totalNumber;
   }

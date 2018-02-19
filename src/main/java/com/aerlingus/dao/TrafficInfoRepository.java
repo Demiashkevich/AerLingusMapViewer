@@ -1,6 +1,6 @@
 package com.aerlingus.dao;
 
-import com.aerlingus.dto.CityInfoDto;
+import com.aerlingus.dto.AirportInfoDto;
 import com.aerlingus.dto.TrafficInfoDto;
 import com.aerlingus.entity.TrafficInfo;
 import org.springframework.data.jpa.repository.Query;
@@ -21,7 +21,7 @@ public interface TrafficInfoRepository extends CrudRepository<TrafficInfo, Strin
       "HAVING t.originAirport=:city")
   public List<TrafficInfoDto> getTrafficInfoDto(@Param("city") String city);
   @Query("SELECT new com.aerlingus.dto.CityInfoDto(t.originAirport, COUNT(t.originAirport)) FROM TrafficInfo t GROUP BY t.originAirport")
-  public List<CityInfoDto> getCityInfos();
+  public List<AirportInfoDto> getAirportInfos();
   @Query("SELECT new com.aerlingus.dto.CityInfoDto(t.originAirport, COUNT(t.originAirport)) FROM TrafficInfo t GROUP BY t.originAirport HAVING t.originAirport=:city")
-  public CityInfoDto getCityInfo(@Param("city") String city);
+  public AirportInfoDto getAirportInfo(@Param("city") String city);
 }

@@ -44,6 +44,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile 'org.apache.tomcat:tomcat-dbcp:7.0.55'
     compile 'com.oracle.jdbc:ojdbc7:12.1.0.2'
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
     compile group: 'com.google.guava', name: 'guava', version: '23.6-jre'
 }
