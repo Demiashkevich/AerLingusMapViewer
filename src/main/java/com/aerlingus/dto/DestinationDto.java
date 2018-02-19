@@ -1,30 +1,30 @@
 package com.aerlingus.dto;
 
 public class DestinationDto {
-  private String destCity;
+  private String destAirport;
   private long totalNumber;
 
   public DestinationDto() {
   }
 
-  public DestinationDto(String destCity, long totalNumber) {
-    this.destCity = destCity;
+  public DestinationDto(String destAirport, long totalNumber) {
+    this.destAirport = destAirport;
     this.totalNumber = totalNumber;
   }
 
-  public String getDestCity() {
-    return destCity;
+  public String getDestAirport() {
+    return destAirport;
   }
 
-  public void setDestCity(String destCity) {
-    this.destCity = destCity;
+  public void setDestAirport(String destAirport) {
+    this.destAirport = destAirport;
   }
 
   public long getTotalNumber() {
     return totalNumber;
   }
 
-  public void setTotalNumber(int totalNumber) {
+  public void setTotalNumber(long totalNumber) {
     this.totalNumber = totalNumber;
   }
 }

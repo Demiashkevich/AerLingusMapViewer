@@ -45,13 +45,13 @@ public class TrafficInfoService {
     return true;
   }
 
-  public String getTrafficInfo() {
+  public List<CityInfoDto> getTrafficInfo() {
     final List<CityInfoDto> cityList = trafficInfoRepository.getCityInfos();
     final List<TrafficInfoDto> trafficDtoList = trafficInfoRepository.getTrafficInfoDtoList();
 
-    final List<CityInfoDto> cityDtoList = trafficConverter.trafficDtoToCityDto(cityList, trafficDtoList);
+    trafficConverter.trafficDtoToCityDto(cityList, trafficDtoList);
 
-    return cityDtoList.toString();
+    return cityList;
   }
 
 }

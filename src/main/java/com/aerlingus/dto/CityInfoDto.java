@@ -6,24 +6,24 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 public class CityInfoDto {
-  private String originCity;
+  private String originAirport;
   private long totalNumber;
   private List<DestinationDto> destinations = new ArrayList<>();
 
   public CityInfoDto() {
   }
 
-  public CityInfoDto(String originCity, long totalNumber) {
-    this.originCity = originCity;
+  public CityInfoDto(String originAirport, long totalNumber) {
+    this.originAirport = originAirport;
     this.totalNumber = totalNumber;
   }
 
-  public String getOriginCity() {
-    return originCity;
+  public String getOriginAirport() {
+    return originAirport;
   }
 
-  public void setOriginCity(String originCity) {
-    this.originCity = originCity;
+  public void setOriginAirport(String originAirport) {
+    this.originAirport = originAirport;
   }
 
   public long getTotalNumber() {

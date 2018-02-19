@@ -1,33 +1,33 @@
 package com.aerlingus.dto;
 
 public class TrafficInfoDto {
-  private String originCity;
-  private String destCity;
+  private String originAirport;
+  private String destAirport;
   private long totalNumber;
 
   public TrafficInfoDto() {
   }
 
-  public TrafficInfoDto(String originCity, String destCity, long totalNumber) {
-    this.originCity = originCity;
-    this.destCity = destCity;
+  public TrafficInfoDto(String originAirport, String destAirport, long totalNumber) {
+    this.originAirport = originAirport;
+    this.destAirport = destAirport;
     this.totalNumber = totalNumber;
   }
 
-  public String getOriginCity() {
-    return originCity;
+  public String getOriginAirport() {
+    return originAirport;
   }
 
-  public void setOriginCity(String originCity) {
-    this.originCity = originCity;
+  public void setOriginAirport(String originAirport) {
+    this.originAirport = originAirport;
   }
 
-  public String getDestCity() {
-    return destCity;
+  public String getDestAirport() {
+    return destAirport;
   }
 
-  public void setDestCity(String destCity) {
-    this.destCity = destCity;
+  public void setDestAirport(String destAirport) {
+    this.destAirport = destAirport;
   }
 
   public long getTotalNumber() {

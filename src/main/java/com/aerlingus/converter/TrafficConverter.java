@@ -11,23 +11,18 @@ import java.util.List;
 @Component
 public class TrafficConverter {
 
-  public List<CityInfoDto> trafficDtoToCityDto(final List<CityInfoDto> cityDtoList, final List<TrafficInfoDto> trafficDtoList){
-    final List<CityInfoDto> result = new ArrayList<>();
+  public void trafficDtoToCityDto(final List<CityInfoDto> cityDtoList, final List<TrafficInfoDto> trafficDtoList){
     cityDtoList.forEach(c -> {
-      final CityInfoDto cityDto = new CityInfoDto();
-      cityDto.setOriginCity(c.getOriginCity());
       trafficDtoList.forEach(t -> {
-        if (t.getOriginCity().equals(c.getOriginCity())) {
+        if (t.getOriginAirport().equals(c.getOriginAirport())) {
           DestinationDto destinationDto = new DestinationDto(
-              t.getDestCity(),
+              t.getDestAirport(),
               t.getTotalNumber()
           );
-          cityDto.getDestinations().add(destinationDto);
+          c.getDestinations().add(destinationDto);
         }
       });
-      result.add(cityDto);
     });
-  return result;
   }
 
 }
