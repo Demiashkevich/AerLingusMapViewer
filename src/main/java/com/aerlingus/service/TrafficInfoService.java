@@ -45,13 +45,23 @@ public class TrafficInfoService {
     return true;
   }
 
-  public List<AirportInfoDto> getTrafficInfo() {
-    final List<AirportInfoDto> cityList = trafficInfoRepository.getAirportInfos();
+  public List<AirportInfoDto> getAirportInfos() {
+    final List<AirportInfoDto> airportInfoDtoList = trafficInfoRepository.getAirportInfos();
     final List<TrafficInfoDto> trafficDtoList = trafficInfoRepository.getTrafficInfoDtoList();
 
-    trafficConverter.trafficDtoToCityDto(cityList, trafficDtoList);
+    trafficConverter.trafficDtoToCityDto(airportInfoDtoList, trafficDtoList);
 
-    return cityList;
+    return airportInfoDtoList;
   }
 
+  public AirportInfoDto getAirportInfo(String airportCode) {
+    final List<AirportInfoDto> airportInfoDtoList = trafficInfoRepository.getAirportInfo(airportCode);
+    final List<TrafficInfoDto> trafficDtoList = trafficInfoRepository.getTrafficInfoDtoList();
+
+    trafficConverter.trafficDtoToCityDto(airportInfoDtoList, trafficDtoList);
+    if(!airportInfoDtoList.isEmpty()){
+      return airportInfoDtoList.get(0);
+    }
+    return null;
+  }
 }

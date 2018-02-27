@@ -16,12 +16,17 @@ public interface TrafficInfoRepository extends CrudRepository<TrafficInfo, Strin
       "FROM TrafficInfo t GROUP BY t.destAirport,t.originAirport " +
       "HAVING t.originAirport IN (SELECT ti.originAirport FROM TrafficInfo ti GROUP BY ti.originAirport)")
   public List<TrafficInfoDto> getTrafficInfoDtoList();
+
   @Query("SELECT new com.aerlingus.dto.TrafficInfoDto(t.originAirport,t.destAirport, COUNT(t.destAirport)) " +
       "FROM TrafficInfo t GROUP BY t.destAirport,t.originAirport " +
-      "HAVING t.originAirport=:city")
-  public List<TrafficInfoDto> getTrafficInfoDto(@Param("city") String city);
-  @Query("SELECT new com.aerlingus.dto.CityInfoDto(t.originAirport, COUNT(t.originAirport)) FROM TrafficInfo t GROUP BY t.originAirport")
+      "HAVING t.originAirport=:airportCode")
+  public List<TrafficInfoDto> getTrafficInfoDto(@Param("airportCode") String airportCode);
+
+  @Query("SELECT new com.aerlingus.dto.AirportInfoDto(t.originAirport, COUNT(t.originAirport)) " +
+      "FROM TrafficInfo t GROUP BY t.originAirport")
   public List<AirportInfoDto> getAirportInfos();
-  @Query("SELECT new com.aerlingus.dto.CityInfoDto(t.originAirport, COUNT(t.originAirport)) FROM TrafficInfo t GROUP BY t.originAirport HAVING t.originAirport=:city")
-  public AirportInfoDto getAirportInfo(@Param("city") String city);
+
+  @Query("SELECT new com.aerlingus.dto.AirportInfoDto(t.originAirport, COUNT(t.originAirport)) FROM TrafficInfo t " +
+      "GROUP BY t.originAirport HAVING t.originAirport=:airportCode")
+  public List<AirportInfoDto> getAirportInfo(@Param("airportCode") String airportCode);
 }
