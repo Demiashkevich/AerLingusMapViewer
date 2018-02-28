@@ -1,5 +1,6 @@
 package com.aerlingus.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="TRAFFIC_INFO")
-public class TrafficInfo {
+public class TrafficInfo implements Serializable{
   private static long serialVersionUID=1L;
   @Id
   @Column(name="PNR_REFERENCE")

@@ -1,5 +1,6 @@
 package com.aerlingus.parser;
 
+import com.aerlingus.converter.DateConverter;
 import com.aerlingus.entity.TrafficInfo;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
@@ -54,18 +55,8 @@ public class FileParser {
   }
 
   private Date parseDate(final String formatDate) {
-    final String strDate = Splitter.on(".").splitToList(formatDate).get(0);
-    return this.convertStringToDate(strDate);
-  }
-
-  private Date convertStringToDate(final String strDate) {
-    final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-    try {
-      return formatter.parse(strDate);
-    } catch (ParseException e) {
-      logger.error("Unable to convert the string (" + strDate + ") to date");
-    }
-    return null;
+    final String strDate = Splitter.on("T").splitToList(formatDate).get(0);
+    return DateConverter.convertStringToDate(strDate);
   }
 
   private List<String> getFileLine(final String path) {
