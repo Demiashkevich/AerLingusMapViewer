@@ -9,9 +9,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -21,16 +23,18 @@ public class TrafficController {
   @Autowired
   private TrafficInfoService trafficService;
 
-  @GetMapping(value = "/traffics/")
+  @GetMapping(value = "/traffics")
   @ApiOperation("View all traffic")
-  public List<AirportInfoDto> getAirportInfo() {
-    return trafficService.getAirportInfos();
+  public List<AirportInfoDto> getAirportInfo(@RequestParam("startDate") String startDate,
+      @RequestParam("endDate") String endDate) {
+    return trafficService.getAirportInfos(startDate,endDate);
   }
 
   @GetMapping(value = "/traffics/{airportCode}")
   @ApiOperation("View the particular traffic by airportCode")
-  public AirportInfoDto getAirportInfo(@PathVariable(value = "airportCode") String airportCode) {
-    return trafficService.getAirportInfo(airportCode);
+  public AirportInfoDto getAirportInfo(@PathVariable(value = "airportCode") String airportCode,
+      @RequestParam("startDate") String startDate,@RequestParam("endDate") String endDate) {
+    return trafficService.getAirportInfo(airportCode, startDate, endDate);
   }
 
   @ResponseStatus(value= HttpStatus.INTERNAL_SERVER_ERROR,
